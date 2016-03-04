@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, commentService) {
+  function MainController(commentService) {
     var vm = this;
 
     init();

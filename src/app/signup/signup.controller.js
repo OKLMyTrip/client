@@ -3,12 +3,32 @@
 
   angular
     .module('oklmClient')
-    .controller('SignupController', signupController);
+    .controller('SignupController', SignupController);
 
   /** @ngInject */
-  function signupController() {
+  function SignupController(userService) {
     var vm = this;
 
-    vm.toto = {}
+    vm.user = {
+      firstName : "",
+      lastName : "",
+      address : "",
+      city : "",
+      postalCode : ""
+    };
+
+    vm.newUser = _addUser();
+
+    function _addUser(){
+      userService.signupUser(vm.user, function(err, res){
+        if(err){
+          //$log("error in signup");
+          alert("error");
+        }else{
+          //$log(res.firstName + "added !");
+          alert(res);
+        }
+      })
+    }
   }
 })();
