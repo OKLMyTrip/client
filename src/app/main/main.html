@@ -1,8 +1,8 @@
 <div layout="vertical" layout-fill>
 
-  <md-content>
+  <md-content class="main-home-content">
     <header>
-      <acme-navbar creation-date="main.creationDate"></acme-navbar>
+      <acme-navbar></acme-navbar>
     </header>
 
     <section class="jumbotron">
@@ -11,23 +11,20 @@
         <br>
         <img class="main-title" src="assets/images/logo_title.png">
       </p>
-      <md-button class="md-raised animated infinite" ng-class="main.classAnimation" ng-click="main.showToastr()">Rejoignez-nous</md-button>
+      <md-button class="md-raised animated infinite">Rejoignez-nous</md-button>
       <p>
         Avec OKLMyTrip vous voyagez<acme-malarkey extra-values="['Au calme', 'rapidement', 'a moindre cout', 'au plus près de chez vous', 'avec qui vous voulez', 'en sécurité', 'en discutant', 'en faisant de nouvelles rencontres', 'Où vous voulez', 'Quand vous voulez']"></acme-malarkey>
       </p>
     </section>
 
     <div class="techs" layout-align="center">
-      <md-card ng-repeat="awesomeThing in main.awesomeThings | orderBy:'rank'">
+      <md-card ng-repeat="comment in main.homeComments | orderBy:'rank'">
         <md-card-content>
-          <i class="fa fa-camera-retro fa-5x"></i> fa-5x
-          <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
-          <h3 class="md-title">{{ awesomeThing.title }}</h3>
-          <p>{{ awesomeThing.description }}</p>
+          <!--<img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">-->
+          <h3 class="md-title">{{ comment.lastName}} {{ comment.firstName }}</h3>
+          <span>{{ comment.note}}</span>
+          <p>{{ comment.avis }}</p>
         </md-card-content>
-        <div class="md-action-buttons">
-          <md-button ng-href="{{ awesomeThing.url }}">Website</md-button>
-        </div>
       </md-card>
     </div>
   </md-content>
