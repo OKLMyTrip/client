@@ -31,6 +31,7 @@
     function getWebDevTec() {
       vm.awesomeThings = webDevTec.getTec();
 
+
       angular.forEach(vm.awesomeThings, function(awesomeThing) {
         awesomeThing.rank = Math.random();
       });

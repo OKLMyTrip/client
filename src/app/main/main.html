@@ -20,6 +20,7 @@
     <div class="techs" layout-align="center">
       <md-card ng-repeat="awesomeThing in main.awesomeThings | orderBy:'rank'">
         <md-card-content>
+          <i class="fa fa-camera-retro fa-5x"></i> fa-5x
           <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
           <h3 class="md-title">{{ awesomeThing.title }}</h3>
           <p>{{ awesomeThing.description }}</p>
