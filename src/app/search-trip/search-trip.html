@@ -6,29 +6,30 @@
     </header>
 
     <section>
+            <div class="alert-message">{{vm.alertMessage}}</div>
             <form class="signup-form" name="userForm">
               <div layout-gt-sm="row">
                 <md-input-container class="md-block" flex-gt-sm>
                   <label>Prénom</label>
-                  <input ng-model="user.firstName">
+                  <input ng-model="vm.user.firstName">
                 </md-input-container>
                 <md-input-container class="md-block" flex-gt-sm>
                   <label>Nom</label>
-                  <input ng-model="user.lastName">
+                  <input ng-model="vm.user.lastName">
                 </md-input-container>
               </div>
               <md-input-container class="md-block">
                 <label>Addresse</label>
-                <input ng-model="user.address">
+                <input ng-model="vm.user.address">
               </md-input-container>
               <div layout-gt-sm="row">
                 <md-input-container class="md-block" flex-gt-sm>
                   <label>Ville</label>
-                  <input ng-model="user.city">
+                  <input ng-model="vm.user.city">
                 </md-input-container>
                 <md-input-container class="md-block" flex-gt-sm>
                   <label>Code Postal</label>
-                  <input name="postalCode" ng-model="user.postalCode" placeholder="12345"
+                  <input name="postalCode" ng-model="vm.user.postalCode" placeholder="12345"
                          required ng-pattern="/^[0-9]{5}$/" md-maxlength="5">
                   <div ng-messages="userForm.postalCode.$error" role="alert" multiple>
                     <div ng-message="required" class="my-message">Vous devez saisir un code postal.</div>
@@ -38,7 +39,7 @@
                 </md-input-container>
               </div>
               <div layout-gt-sm="row" layout-align="center center">
-                <md-button class="md-raised md-primary" ng-click="newUser()">Valider</md-button>
+                <md-button class="md-raised md-primary" ng-click="vm.newUser()">Valider</md-button>
               </div>
             </form>
     </section>

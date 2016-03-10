@@ -6,7 +6,7 @@
     .controller('SignupController', SignupController);
 
   /** @ngInject */
-  function SignupController(userService) {
+  function SignupController(userService, $state, $mdSidenav) {
     var vm = this;
 
     vm.user = {
@@ -17,18 +17,29 @@
       postalCode : ""
     };
 
-    vm.newUser = _addUser();
+    vm.alertMessage = "";
 
-    function _addUser(){
+    vm.close = function () {
+      $mdSidenav('right').close()
+        .then(function () {
+          //$log.debug("close RIGHT is done");
+        });
+    };
+
+    vm.newUser = function(){
       userService.signupUser(vm.user, function(err, res){
         if(err){
           //$log("error in signup");
+          vm.alertMessage = "Error :" + err;
           alert("error");
         }else{
           //$log(res.firstName + "added !");
-          alert(res);
+          /*alert(res);*/
+          vm.alertMessage = "Votre inscription à été prise en compte " + res;
+           $state.transitionTo('home', {arg: res});
         }
       })
-    }
+    };
+
   }
 })();
