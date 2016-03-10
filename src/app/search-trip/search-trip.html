@@ -1,0 +1,32 @@
+<div layout="vertical" layout-fill>
+
+  <md-content class="content signup-content">
+    <header>
+      <acme-navbar></acme-navbar>
+    </header>
+
+    <section>
+            <!--<div class="alert-message">{{vm.alertMessage}}</div>-->
+            <form name="tripForm" class="search-trip-form">
+              <div layout-gt-sm="row">
+                <md-input-container class="md-block" flex-gt-sm>
+                  <label>Ville de départ</label>
+                  <input ng-model="vm.searchData.beginCity">
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                  <label>Ville d'arrivée</label>
+                  <input ng-model="vm.searchData.endCity">
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                <label>Heure de départ</label>
+                <input ng-model="vm.searchData.beginHour">
+              </md-input-container>
+                <div class="md-block" layout="row" layout-align="center center" flex-gt-sm>
+                  <md-button class="md-raised md-primary" ng-click="vm.search()">Valider</md-button>
+                </div>
+              </div>
+            </form>
+    </section>
+  </md-content>
+
+</div>
