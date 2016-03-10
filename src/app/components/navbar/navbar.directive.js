@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   angular
@@ -10,9 +10,7 @@
     var directive = {
       restrict: 'E',
       templateUrl: 'app/components/navbar/navbar.html',
-      scope: {
-
-      },
+      scope: {},
       controller: NavbarController,
       controllerAs: 'vm',
       bindToController: true
@@ -21,18 +19,22 @@
     return directive;
 
     /** @ngInject */
-    function NavbarController(userService, $mdSidenav) {
+    function NavbarController(userService, $mdSidenav, $translate) {
       var vm = this;
 
       // "vm.creation" is avaible by directive option "bindToController: true"
       vm.connectedUser = null;
 
 
+      vm.onChangeLang = _onChangeLang;
+
       _init();
 
-      function _init(){
-        userService.getUserConnected(function(user){
-          if(user !== null){
+      function _init() {
+
+
+        userService.getUserConnected(function (user) {
+          if (user !== null) {
             vm.connectedUser = {};
             vm.connectedUser.firstName = user.firstName;
             vm.connectedUser.lastName = user.lastName;
@@ -40,21 +42,24 @@
         })
       }
 
+      function _onChangeLang(lang) {
+        $translate.use(lang);
+      }
 
 
-      vm.disconnect = function(){
-        userService.disconnectUser(function(res){
-          if(res === true){
+      vm.disconnect = function () {
+        userService.disconnectUser(function (res) {
+          if (res === true) {
             vm.connectedUser = null;
           }
         });
       };
 
-      vm.openSignup = function(){
+      vm.openSignup = function () {
         $mdSidenav('signupnav').toggle();
       };
 
-      vm.openSignin = function(){
+      vm.openSignin = function () {
         $mdSidenav('signinnav').toggle();
       };
 
@@ -62,8 +67,8 @@
       /* connection desction*/
 
       vm.connectUser = {
-        mail : "",
-        pwd : ""
+        mail: "",
+        pwd: ""
       };
 
       vm.closeConnection = function () {
@@ -73,13 +78,19 @@
           });
       };
 
-      vm.connectUser = function(){
-        userService.connectUser(vm.connectUser, function(err, user){
-          if(err){
+      vm.connectUser = function () {
+        vm.loginError = null;
+
+        userService.connectUser(vm.connectUser, function (err, user) {
+          if (err) {
+            if (err == 403) {
+              vm.loginError = "Identifiants ou mot de passe invalide";
+            } else {
+              alert("error");
+            }
             //$log("error in signup");
             //vm.alertMessage = "Error :" + err;
-            alert("error");
-          }else{
+          } else {
             //$log(res.firstName + "added !");
             /*alert(res);*/
             vm.connectedUser = {};
@@ -94,11 +105,11 @@
 
       /* signup section */
       vm.user = {
-        firstName : "",
-        lastName : "",
-        address : "",
-        city : "",
-        postalCode : ""
+        firstName: "",
+        lastName: "",
+        address: "",
+        city: "",
+        postalCode: ""
       };
 
       vm.alertMessage = "";
@@ -110,16 +121,18 @@
           });
       };
 
-      vm.newUser = function(){
-        userService.signupUser(vm.user, function(err, res){
-          if(err){
+      vm.newUser = function () {
+
+
+        userService.signupUser(vm.user, function (err, res) {
+          if (err) {
             //$log("error in signup");
             //vm.alertMessage = "Error :" + err;
             alert("error");
-          }else{
+          } else {
             //$log(res.firstName + "added !");
             /*alert(res);*/
-            vm.alertMessage = "Votre inscription à été prise en compte " + res;
+
             //$state.transitionTo('home', {arg: res});
             vm.close();
           }
