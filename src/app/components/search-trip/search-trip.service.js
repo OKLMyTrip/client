@@ -6,29 +6,16 @@
 
   angular
     .module('oklmClient')
-    .service('userService', userService);
+    .service('searchTripService', searchTripService);
 
   /** @ngInject */
-  function userService() {
+  function searchTripService() {
 
-    var connectedUser = {};
+    this.search = _search;
 
-    this.signupUser = _signupUser;
-    this.getUserConnected = _getUserConnected;
-    this.connectUser = _connectUser;
-
-    function _getUserConnected(){
-      return(connectedUser);
-    }
-
-    function _signupUser(user, cb) {
+    function _search(trip, cb){
       //call server
-      cb(null, user.firstName);
-    }
-
-    function _connectUser(user, cb){
-      //call server
-      cb(null, user.firstName);
+      cb(null, trip);
     }
   }
 

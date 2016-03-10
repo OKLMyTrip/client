@@ -11,9 +11,22 @@
   /** @ngInject */
   function userService() {
 
+    var connectedUser = {};
+
     this.signupUser = _signupUser;
+    this.getUserConnected = _getUserConnected;
+    this.connectUser = _connectUser;
+
+    function _getUserConnected(){
+      return(connectedUser);
+    }
 
     function _signupUser(user, cb) {
+      //call server
+      cb(null, user.firstName);
+    }
+
+    function _connectUser(user, cb){
       //call server
       cb(null, user.firstName);
     }
