@@ -26,7 +26,14 @@
       TRIP_MINUTES: 'Minutes',
       TRIP_PRICE: 'Trip price',
       TRIP_PLACES_LEFT: 'Places left',
-      TRIP_POST: 'Post'
+      TRIP_POST: 'Post',
+
+      SEARCH_START: 'Start',
+      SEARCH_END: 'Destination',
+      SEARCH_DATE: 'Trip date',
+      SEARCH_HOUR: 'Hour',
+      SEARCH_MINUTES: 'Minutes',
+      SEARCH_VALIDATE: 'Validate'
     };
 
     var translationsFR = {
@@ -38,7 +45,14 @@
       TRIP_MINUTES: 'Minutes',
       TRIP_PRICE: 'Prix du trajet',
       TRIP_PLACES_LEFT: 'Places réstantes',
-      TRIP_POST: 'Publier'
+      TRIP_POST: 'Publier',
+
+      SEARCH_START: 'Départ',
+      SEARCH_END: 'Destination',
+      SEARCH_DATE: 'Date du trajet',
+      SEARCH_HOUR: 'Heure',
+      SEARCH_MINUTES: 'Minutes',
+      SEARCH_VALIDATE: 'Valider'
     };
 
     $translateProvider.translations('en', translationsEN);
