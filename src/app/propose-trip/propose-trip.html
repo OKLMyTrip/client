@@ -38,7 +38,7 @@
           </md-input-container>
 
           <md-input-container class="md-block" flex-gt-sm>
-            <label>{{'minutes' |translate}}</label>
+            <label>{{'TRIP_MINUTES' |translate}}</label>
             <md-select ng-model="vm.trip.minutesDeparture">
               <md-option ng-repeat="minute in vm.minutes" value="{{minute}}">
                 {{minute}}
@@ -49,13 +49,13 @@
         <!-- End Date -->
 
         <md-input-container class="md-block">
-          <label>{{ 'price' | translate}}</label>
+          <label>{{ 'TRIP_PRICE' | translate}}</label>
           <input ng-model="vm.trip.price">
         </md-input-container>
 
 
         <md-input-container class="md-block">
-          <label>{{ 'nbPlaces' | translate}}</label>
+          <label>{{ 'TRIP_PLACES_LEFT' | translate}}</label>
           <input ng-model="vm.trip.placesLeft" type="number">
         </md-input-container>
 
@@ -76,7 +76,7 @@
       </div>
 
 
-      <md-button class="md-raised" ng-click="vm.purposeTrip()"> {{ 'proposeTrip' | translate}}</md-button>
+      <md-button class="md-raised" ng-click="vm.purposeTrip()"> {{ 'TRIP_POST' | translate}}</md-button>
 
     </div>
 
