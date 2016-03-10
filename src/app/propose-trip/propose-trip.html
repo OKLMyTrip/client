@@ -3,7 +3,7 @@
   <md-content flex>
 
 
-    <h1>{{ 'proproseAnnonce' | translate }}</h1>
+    <h1>{{ 'PROPOSE_TRIP_HEADER' | translate }}</h1>
 
     <h3 ng-if="vm.successPropose">{{vm.successPropose}}</h3>
 
@@ -11,25 +11,25 @@
     <div layout="row">
       <div flex="">
         <md-input-container class="md-block">
-          <label>{{ 'tripOrigin' | translate}}</label>
+          <label>{{ 'TRIP_ORIGIN' | translate}}</label>
           <input ng-model="vm.trip.origin">
         </md-input-container>
 
 
         <md-input-container class="md-block">
-          <label>{{ 'tripDestination' | translate}}</label>
+          <label>{{ 'TRIP_DESTINATION' | translate}}</label>
           <input ng-model="vm.trip.destination">
         </md-input-container>
 
 
-        <md-button class="md-raised" ng-click="vm.seeTrip()"> {{ 'seeTrip' | translate}}</md-button>
+        <md-button class="md-raised" ng-click="vm.seeTrip()"> {{ 'TRIP_VIZUALISATION' | translate}}</md-button>
 
         <!-- Begin Date -->
         <div layout="row">
           <md-datepicker ng-model="vm.trip.dateDeparture">
           </md-datepicker>
           <md-input-container class="md-block" flex-gt-sm>
-            <label>{{'hour' |translate}}</label>
+            <label>{{'TRIP_HOUR' |translate}}</label>
             <md-select ng-model="vm.trip.hoursDeparture">
               <md-option ng-repeat="hour in vm.hours" value="{{hour}}">
                 {{hour}}
