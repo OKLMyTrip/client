@@ -24,10 +24,14 @@
     }
 
     function _getUserConnected(cb){
-      if(connectedUser !== null){
-        cb(connectedUser);
+      if(cb){
+        if(connectedUser !== null){
+          cb(connectedUser);
+        }else{
+          cb(null);
+        }
       }else{
-        cb(null);
+        return connectedUser;
       }
     }
 

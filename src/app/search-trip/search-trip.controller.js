@@ -9,6 +9,8 @@
   function searchTripController(searchTripService) {
     var vm = this;
 
+    vm.trips = [];
+
     vm.searchData = {
       beginCity : "",
       endCity : "",
@@ -22,10 +24,44 @@
     vm.selectMinutes = _getMinutes();
 
     vm.search = function(){
-      searchTripService.search(vm.searchData, function(err, res){
-        vm.alertMessage = res;
-      })
+      /*searchTripService.search(vm.searchData, function(err, trips){
+        if(err){
+          console.log(err);
+        }else{
+          vm.trips = trips;
+        }
+      })*/
+
+      vm.trips = [
+        {
+          dateDeparture : new Date(),
+          hoursDeparture : "20:03",
+          origin : "DAUX",
+          destination : "TOULOUSE",
+          price : 10.50,
+          placesLeft : 3,
+          user : {
+            firstName : "Celine",
+            lastName : "DUPUIS",
+            old : 28,
+            rate : 4
+          }
+        },
+        {
+          dateDeparture : new Date(),
+          hoursDeparture : "10:20",
+          origin : "PARIS",
+          destination : "MONTPELLIER",
+          price : 20,
+          placesLeft : 2,
+          user : {
+            firstName : "Marc",
+            lastName : "AGRILOT"
+          }
+        }
+      ]
     };
+
 
     function _getHours() {
       var hours = [];

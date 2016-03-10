@@ -40,6 +40,32 @@
               </div>
             </form>
     </section>
+    <section>
+      <div class="" layout="column" layout-align="center">
+        <md-card ng-repeat="trip in vm.trips | orderBy:'rank'">
+          <md-card-content>
+            <div flex="10">
+              {{trip.date}} {{trip.hoursDeparture}}
+            </div>
+            <div flex="10">
+              {{trip.origin}}
+            </div>
+            <div flex="10">
+              {{trip.destination}}
+            </div>
+            <div flex="10">
+              {{trip.price}}
+            </div>
+            <div flex="10">
+              {{trip.placesLeft}}
+            </div>
+            <div flex="10">
+              {{trip.user.lastName}} {{trip.user.firstName}}
+            </div>
+          </md-card-content>
+        </md-card>
+      </div>
+    </section>
   </md-content>
 
 </div>
