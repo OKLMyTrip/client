@@ -1,0 +1,56 @@
+<div layout="vertical" layout-fill>
+
+  <md-content flex>
+
+
+    <h1>{{ 'proproseAnnonce' | translate }}</h1>
+
+    <md-input-container class="md-block">
+      <label>{{ 'tripOrigin' | translate}}</label>
+      <input ng-model="vm.trip.origin">
+    </md-input-container>
+
+
+    <md-input-container class="md-block">
+      <label>{{ 'tripDestination' | translate}}</label>
+      <input ng-model="vm.trip.destination">
+    </md-input-container>
+
+    <md-button ng-click="vm.seeTrip()"> {{ 'seeTrip' | translate}}</md-button>
+
+    <!-- Begin Date -->
+    <div layout="row">
+      <md-datepicker ng-model="vm.trip.destination" md-placeholder="Enter date">
+      </md-datepicker>
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>{{'hour' |translate}}</label>
+        <md-select ng-model="vm.trip.hourDeparture">
+          <md-option ng-repeat="hour in vm.hours" value="{{hour}}">
+            {{hour}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>{{'minutes' |translate}}</label>
+        <md-select ng-model="vm.trip.minutesDeparture">
+          <md-option ng-repeat="minute in vm.minutes" value="{{minute}}">
+            {{minute}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+    </div>
+    <!-- End Date -->
+
+    <md-input-container class="md-block">
+      <label>{{ 'price' | translate}}</label>
+      <input ng-model="vm.trip.price">
+    </md-input-container>
+
+    <div id="map"></div>
+
+
+    <ui-gmap-google-map center='vm.map.center' zoom='vm.map.zoom'></ui-gmap-google-map>
+
+  </md-content>
+</div>
