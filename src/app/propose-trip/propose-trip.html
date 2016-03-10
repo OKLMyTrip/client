@@ -6,31 +6,31 @@
     </header>
     <section>
       <md-content flex class="content-propose">
-        <h1 class="caviar-font">{{ 'proproseAnnonce' | translate }}</h1>
+        <h1 class="caviar-font">{{ 'PROPOSE_TRIP_HEADER' | translate }}</h1>
         <h3 ng-if="vm.successPropose">{{vm.successPropose}}</h3>
 
         <div layout="row" >
           <div flex="" class="block-propose">
             <md-input-container class="md-block">
-              <label class="caviar-font">{{ 'tripOrigin' | translate}}</label>
+              <label class="caviar-font">{{ 'TRIP_ORIGIN' | translate}}</label>
               <input ng-model="vm.trip.origin">
             </md-input-container>
 
 
             <md-input-container class="md-block">
-              <label class="caviar-font">{{ 'tripDestination' | translate}}</label>
+              <label class="caviar-font">{{ 'TRIP_DESTINATION' | translate}}</label>
               <input ng-model="vm.trip.destination">
             </md-input-container>
 
 
-            <md-button class="md-raised caviar-font-bold" style="margin-bottom: 25px" ng-click="vm.seeTrip()"> {{ 'seeTrip' | translate}}</md-button>
+            <md-button class="md-raised caviar-font-bold" style="margin-bottom: 25px" ng-click="vm.seeTrip()"> {{ 'TRIP_VIZUALISATION' | translate}}</md-button>
 
             <!-- Begin Date -->
             <div layout="row">
               <md-datepicker ng-model="vm.trip.dateDeparture">
               </md-datepicker>
               <md-input-container class="md-block" flex-gt-sm>
-                <label class="caviar-font">{{'hour' |translate}}</label>
+                <label class="caviar-font">{{'TRIP_HOUR' |translate}}</label>
                 <md-select ng-model="vm.trip.hoursDeparture">
                   <md-option ng-repeat="hour in vm.hours" value="{{hour}}">
                     {{hour}}
@@ -39,7 +39,7 @@
               </md-input-container>
 
               <md-input-container class="md-block" flex-gt-sm>
-                <label class="caviar-font">{{'minutes' |translate}}</label>
+                <label class="caviar-font">{{'TRIP_MINUTES' |translate}}</label>
                 <md-select ng-model="vm.trip.minutesDeparture">
                   <md-option ng-repeat="minute in vm.minutes" value="{{minute}}">
                     {{minute}}
@@ -50,13 +50,13 @@
             <!-- End Date -->
 
             <md-input-container class="md-block">
-              <label class="caviar-font">{{ 'price' | translate}}</label>
+              <label class="caviar-font">{{ 'TRIP_PRICE' | translate}}</label>
               <input ng-model="vm.trip.price">
             </md-input-container>
 
 
             <md-input-container class="md-block">
-              <label class="caviar-font">{{ 'nbPlaces' | translate}}</label>
+              <label class="caviar-font">{{ 'TRIP_PLACES_LEFT' | translate}}</label>
               <input ng-model="vm.trip.placesLeft" type="number">
             </md-input-container>
 
@@ -64,7 +64,7 @@
               <h4>La durée du trajet</h4>
               <p>{{vm.durationTime}}</p>
             </div>
-            <md-button class="md-raised" ng-click="vm.purposeTrip()"> {{ 'proposeTrip' | translate}}</md-button>
+            <md-button class="md-raised" ng-click="vm.purposeTrip()"> {{ 'TRIP_POST' | translate}}</md-button>
           </div>
 
           <div flex="">
