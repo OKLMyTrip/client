@@ -22,7 +22,11 @@
       TRIP_ORIGIN: 'Trip start',
       TRIP_DESTINATION: 'Trip end',
       TRIP_VIZUALISATION: 'Visualize the trip',
-      TRIP_HOUR: 'Hour'
+      TRIP_HOUR: 'Hour',
+      TRIP_MINUTES: 'Minutes',
+      TRIP_PRICE: 'Trip price',
+      TRIP_PLACES_LEFT: 'Places left',
+      TRIP_POST: 'Post'
     };
 
     var translationsFR = {
@@ -30,7 +34,11 @@
       TRIP_ORIGIN: 'Début du trajet',
       TRIP_DESTINATION: 'Fin du trajet',
       TRIP_VIZUALISATION: 'Visualiser le trajet',
-      TRIP_HOUR: 'Heure'
+      TRIP_HOUR: 'Heure',
+      TRIP_MINUTES: 'Minutes',
+      TRIP_PRICE: 'Prix du trajet',
+      TRIP_PLACES_LEFT: 'Places réstantes',
+      TRIP_POST: 'Publier'
     };
 
     $translateProvider.translations('en', translationsEN);

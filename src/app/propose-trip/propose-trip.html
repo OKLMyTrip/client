@@ -1,85 +1,86 @@
 <div layout="vertical" layout-fill>
 
-  <md-content flex>
+  <md-content class="content signup-content">
+    <header>
+      <acme-navbar></acme-navbar>
+    </header>
+    <section>
+      <md-content flex class="content-propose">
+        <h1 class="caviar-font">{{ 'PROPOSE_TRIP_HEADER' | translate }}</h1>
+        <h3 ng-if="vm.successPropose">{{vm.successPropose}}</h3>
+
+        <div layout="row" >
+          <div flex="" class="block-propose">
+            <md-input-container class="md-block">
+              <label class="caviar-font">{{ 'TRIP_ORIGIN' | translate}}</label>
+              <input ng-model="vm.trip.origin">
+            </md-input-container>
 
 
-    <h1>{{ 'PROPOSE_TRIP_HEADER' | translate }}</h1>
-
-    <h3 ng-if="vm.successPropose">{{vm.successPropose}}</h3>
-
-
-    <div layout="row">
-      <div flex="">
-        <md-input-container class="md-block">
-          <label>{{ 'TRIP_ORIGIN' | translate}}</label>
-          <input ng-model="vm.trip.origin">
-        </md-input-container>
+            <md-input-container class="md-block">
+              <label class="caviar-font">{{ 'TRIP_DESTINATION' | translate}}</label>
+              <input ng-model="vm.trip.destination">
+            </md-input-container>
 
 
-        <md-input-container class="md-block">
-          <label>{{ 'TRIP_DESTINATION' | translate}}</label>
-          <input ng-model="vm.trip.destination">
-        </md-input-container>
+            <md-button class="md-raised caviar-font-bold" style="margin-bottom: 25px" ng-click="vm.seeTrip()"> {{ 'TRIP_VIZUALISATION' | translate}}</md-button>
+
+            <!-- Begin Date -->
+            <div layout="row">
+              <md-datepicker ng-model="vm.trip.dateDeparture">
+              </md-datepicker>
+              <md-input-container class="md-block" flex-gt-sm>
+                <label class="caviar-font">{{'TRIP_HOUR' |translate}}</label>
+                <md-select ng-model="vm.trip.hoursDeparture">
+                  <md-option ng-repeat="hour in vm.hours" value="{{hour}}">
+                    {{hour}}
+                  </md-option>
+                </md-select>
+              </md-input-container>
+
+              <md-input-container class="md-block" flex-gt-sm>
+                <label class="caviar-font">{{'TRIP_MINUTES' |translate}}</label>
+                <md-select ng-model="vm.trip.minutesDeparture">
+                  <md-option ng-repeat="minute in vm.minutes" value="{{minute}}">
+                    {{minute}}
+                  </md-option>
+                </md-select>
+              </md-input-container>
+            </div>
+            <!-- End Date -->
+
+            <md-input-container class="md-block">
+              <label class="caviar-font">{{ 'TRIP_PRICE' | translate}}</label>
+              <input ng-model="vm.trip.price">
+            </md-input-container>
 
 
-        <md-button class="md-raised" ng-click="vm.seeTrip()"> {{ 'TRIP_VIZUALISATION' | translate}}</md-button>
+            <md-input-container class="md-block">
+              <label class="caviar-font">{{ 'TRIP_PLACES_LEFT' | translate}}</label>
+              <input ng-model="vm.trip.placesLeft" type="number">
+            </md-input-container>
 
-        <!-- Begin Date -->
-        <div layout="row">
-          <md-datepicker ng-model="vm.trip.dateDeparture">
-          </md-datepicker>
-          <md-input-container class="md-block" flex-gt-sm>
-            <label>{{'TRIP_HOUR' |translate}}</label>
-            <md-select ng-model="vm.trip.hoursDeparture">
-              <md-option ng-repeat="hour in vm.hours" value="{{hour}}">
-                {{hour}}
-              </md-option>
-            </md-select>
-          </md-input-container>
+            <div ng-if="vm.durationTime">
+              <h4>La durée du trajet</h4>
+              <p>{{vm.durationTime}}</p>
+            </div>
+            <md-button class="md-raised" ng-click="vm.purposeTrip()"> {{ 'TRIP_POST' | translate}}</md-button>
+          </div>
 
-          <md-input-container class="md-block" flex-gt-sm>
-            <label>{{'minutes' |translate}}</label>
-            <md-select ng-model="vm.trip.minutesDeparture">
-              <md-option ng-repeat="minute in vm.minutes" value="{{minute}}">
-                {{minute}}
-              </md-option>
-            </md-select>
-          </md-input-container>
+          <div flex="">
+            <ui-gmap-google-map center='vm.map.center' zoom='vm.map.zoom'></ui-gmap-google-map>
+          </div>
         </div>
-        <!-- End Date -->
 
-        <md-input-container class="md-block">
-          <label>{{ 'price' | translate}}</label>
-          <input ng-model="vm.trip.price">
-        </md-input-container>
+        <div>
 
 
-        <md-input-container class="md-block">
-          <label>{{ 'nbPlaces' | translate}}</label>
-          <input ng-model="vm.trip.placesLeft" type="number">
-        </md-input-container>
 
 
-      </div>
-
-      <div flex="">
-        <ui-gmap-google-map center='vm.map.center' zoom='vm.map.zoom'></ui-gmap-google-map>
-
-      </div>
-    </div>
-
-    <div>
-
-      <div ng-if="vm.durationTime">
-        <h4>La durée du trajet</h4>
-        <p>{{vm.durationTime}}</p>
-      </div>
 
 
-      <md-button class="md-raised" ng-click="vm.purposeTrip()"> {{ 'proposeTrip' | translate}}</md-button>
-
-    </div>
-
-
+        </div>
+      </md-content>
+    </section>
   </md-content>
 </div>
