@@ -17,6 +17,20 @@
       //call server
       cb(null, trip);
     }
+
+    var fakeTrip = {
+      beginCity : "Daux",
+      endCity : "TOULOUSE",
+      time : {
+        minutes : 30,
+        hours : 15
+      },
+      user : {
+        firstName : "Celine",
+        lastName : "DUPRES",
+        old : 42
+      }
+    }
   }
 
 })();

@@ -20,7 +20,19 @@
                   <md-datepicker class="md-block" flex-gt-sm ng-model="vm.searchData.date" md-placeholder="Saisir la date"></md-datepicker>
                 <md-input-container class="md-block" flex-gt-sm>
                 <label>Heure de départ</label>
-                <input ng-model="vm.searchData.hour">
+                  <md-select ng-model="vm.searchData.time.hour">
+                    <md-option ng-repeat="hour in vm.selectHours" value="{{hour}}">
+                      {{hour}}
+                    </md-option>
+                  </md-select>
+              </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                <label>Minutes de départ</label>
+                  <md-select ng-model="vm.searchData.time.minute">
+                    <md-option ng-repeat="minute in vm.selectMinutes" value="{{minute}}">
+                      {{minute}}
+                    </md-option>
+                  </md-select>
               </md-input-container>
                 <div class="md-block" layout="row" layout-align="center center" flex-gt-sm>
                   <md-button class="md-raised md-primary" ng-click="vm.search()">Valider</md-button>

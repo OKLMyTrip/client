@@ -11,14 +11,24 @@
   /** @ngInject */
   function userService() {
 
-    var connectedUser = {};
+    var connectedUser = null;
 
     this.signupUser = _signupUser;
     this.getUserConnected = _getUserConnected;
     this.connectUser = _connectUser;
+    this.disconnectUser = _disconnectUser;
 
-    function _getUserConnected(){
-      return(connectedUser);
+    function _disconnectUser(cb){
+      connectedUser = null;
+      cb(true);
+    }
+
+    function _getUserConnected(cb){
+      if(connectedUser !== null){
+        cb(connectedUser);
+      }else{
+        cb(null);
+      }
     }
 
     function _signupUser(user, cb) {
@@ -28,7 +38,12 @@
 
     function _connectUser(user, cb){
       //call server
-      cb(null, user.firstName);
+      connectedUser = {
+        firstName : user.mail,
+        lastName : user.pwd
+      };
+
+      cb(null, connectedUser);
     }
   }
 

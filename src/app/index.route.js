@@ -26,7 +26,7 @@
         url: '/search-trip',
         templateUrl: 'app/search-trip/search-trip.html',
         controller: 'searchTripController',
-        controllerAs: 'searchTrip'
+        controllerAs: 'vm'
     });
 
     $urlRouterProvider.otherwise('/');

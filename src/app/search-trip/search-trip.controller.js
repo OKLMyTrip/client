@@ -13,16 +13,39 @@
       beginCity : "",
       endCity : "",
       date : new Date(),
-      hour : ""
+      time : {}
     };
 
     vm.alertMessage = "";
+
+    vm.selectHours = _getHours();
+    vm.selectMinutes = _getMinutes();
 
     vm.search = function(){
       searchTripService.search(vm.searchData, function(err, res){
         vm.alertMessage = res;
       })
     };
+
+    function _getHours() {
+      var hours = [];
+
+      for (var i = 1; i < 25; i++) {
+        hours.push(i);
+      }
+
+      return hours;
+    }
+
+    function _getMinutes() {
+      var hours = [];
+
+      for (var i = 0; i <= 50; i += 10) {
+        hours.push(i);
+      }
+
+      return hours;
+    }
 
 
 

@@ -6,8 +6,77 @@
 
   <section flex layout="row" layout-align="center center">
     <md-button ui-sref="search-trip" class="md-raised">Rechercher un trajet</md-button>
-    <md-button href="#" class="md-raised">Connexion</md-button>
-    <md-button ui-sref="propose-tip" class="md-raised">Connexion</md-button>
+    <md-button ng-if="vm.connectedUser == null" ng-click="vm.openSignin()" class="md-raised nav-bar-button">Connexion</md-button>
+    <md-button ng-if="vm.connectedUser == null" ng-click="vm.openSignup()" class="md-raised nav-bar-button">Inscription</md-button>
+    <md-button ng-if="vm.connectedUser != null" ui-sref="propose-trip" class="md-raised nav-bar-button">Proposer un trajet</md-button>
+    <div class="" ng-if="vm.connectedUser != null">Bonjour {{vm.connectedUser.lastName}} {{vm.connectedUser.firstName}}</div>
+    <md-button ng-if="vm.connectedUser != null" ng-click="vm.disconnect()" class="md-raised nav-bar-button">Déconnexion</md-button>
   </section>
 
 </md-toolbar>
+
+
+
+
+<md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="signinnav">
+  <md-toolbar class="md-theme-light">
+    <h1 class="md-toolbar-tools">Connexion</h1>
+  </md-toolbar>
+  <md-content  layout-padding>
+    <form name="userFormConnection">
+      <md-input-container >
+        <label>E-mail</label>
+        <input ng-model="vm.connectUser.mail">
+      </md-input-container>
+      <md-input-container >
+        <label>Password</label>
+        <input type="password" ng-model="vm.connectUser.pwd">
+      </md-input-container>
+      <div layout-gt-sm="row" layout-align="center center">
+        <md-button class="md-raised md-primary" ng-click="vm.connectUser()">Se connecter</md-button>
+      </div>
+    </form>
+  </md-content>
+</md-sidenav>
+
+
+
+<md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="signupnav">
+  <md-toolbar class="md-theme-light">
+    <h1 class="md-toolbar-tools">Inscription</h1>
+  </md-toolbar>
+  <md-content  layout-padding>
+    <form name="userForm">
+      <md-input-container >
+        <label>Prénom</label>
+        <input ng-model="vm.user.firstName">
+      </md-input-container>
+      <md-input-container >
+        <label>Nom</label>
+        <input ng-model="vm.user.lastName">
+      </md-input-container>
+      <md-input-container class="md-block">
+        <label>Addresse</label>
+        <input ng-model="vm.user.address">
+      </md-input-container>
+      <md-input-container >
+        <label>Ville</label>
+        <input ng-model="vm.user.city">
+      </md-input-container>
+      <md-input-container >
+        <label>Code Postal</label>
+        <input name="postalCode" ng-model="vm.user.postalCode" placeholder="12345"
+               required ng-pattern="/^[0-9]{5}$/" md-maxlength="5">
+        <div ng-messages="userForm.postalCode.$error" role="alert" multiple>
+          <div ng-message="required" class="my-message">Vous devez saisir un code postal.</div>
+          <div ng-message="pattern" class="my-message">Ce code postal n'est pas valide.
+          </div>
+        </div>
+      </md-input-container>
+
+      <div layout-gt-sm="row" layout-align="center center">
+        <md-button class="md-raised md-primary" ng-click="vm.newUser()">Valider</md-button>
+      </div>
+    </form>
+  </md-content>
+</md-sidenav>
