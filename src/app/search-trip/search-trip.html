@@ -10,16 +10,16 @@
             <form name="tripForm" class="search-trip-form search-trip-search  fontcolor caviar-font">
               <div layout-gt-sm="row">
                 <md-input-container class="md-block" flex-gt-sm>
-                  <label>Ville de départ</label>
+                  <label>{{ 'SEARCH_START' | translate }}</label>
                   <input ng-model="vm.searchData.beginCity">
                 </md-input-container>
                 <md-input-container class="md-block" flex-gt-sm>
-                  <label>Ville d'arrivée</label>
+                  <label>{{ 'SEARCH_END' | translate }}</label>
                   <input ng-model="vm.searchData.endCity">
                 </md-input-container>
-                  <md-datepicker class="md-block" flex-gt-sm ng-model="vm.searchData.date" md-placeholder="Saisir la date"></md-datepicker>
+                  <md-datepicker class="md-block" flex-gt-sm ng-model="vm.searchData.date" md-placeholder="{{ 'SEARCH_DATE' | translate }}"></md-datepicker>
                 <md-input-container class="md-block" flex-gt-sm>
-                <label>Heure de départ</label>
+                <label>{{ 'SEARCH_HOUR' | translate }}</label>
                   <md-select ng-model="vm.searchData.time.hour">
                     <md-option ng-repeat="hour in vm.selectHours" value="{{hour}}">
                       {{hour}}
@@ -27,7 +27,7 @@
                   </md-select>
               </md-input-container>
                 <md-input-container class="md-block" flex-gt-sm>
-                <label>Minutes de départ</label>
+                <label>{{ 'SEARCH_MINUTES' | translate }}</label>
                   <md-select ng-model="vm.searchData.time.minute">
                     <md-option ng-repeat="minute in vm.selectMinutes" value="{{minute}}">
                       {{minute}}
@@ -35,7 +35,7 @@
                   </md-select>
               </md-input-container>
                 <div class="md-block" layout="row" layout-align="center center" flex-gt-sm>
-                  <md-button class="md-raised md-primary" ng-click="vm.search()">Valider</md-button>
+                  <md-button class="md-raised md-primary" ng-click="vm.search()">{{ 'SEARCH_VALIDATE' | translate }}</md-button>
                 </div>
               </div>
             </form>
