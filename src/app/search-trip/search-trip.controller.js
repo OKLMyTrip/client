@@ -12,7 +12,8 @@
     vm.searchData = {
       beginCity : "",
       endCity : "",
-      beginHour : ""
+      date : new Date(),
+      hour : ""
     };
 
     vm.alertMessage = "";

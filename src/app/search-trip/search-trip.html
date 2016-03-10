@@ -17,9 +17,10 @@
                   <label>Ville d'arrivée</label>
                   <input ng-model="vm.searchData.endCity">
                 </md-input-container>
+                  <md-datepicker class="md-block" flex-gt-sm ng-model="vm.searchData.date" md-placeholder="Saisir la date"></md-datepicker>
                 <md-input-container class="md-block" flex-gt-sm>
                 <label>Heure de départ</label>
-                <input ng-model="vm.searchData.beginHour">
+                <input ng-model="vm.searchData.hour">
               </md-input-container>
                 <div class="md-block" layout="row" layout-align="center center" flex-gt-sm>
                   <md-button class="md-raised md-primary" ng-click="vm.search()">Valider</md-button>
