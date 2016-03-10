@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   angular
@@ -6,7 +6,15 @@
     .config(routerConfig);
 
   /** @ngInject */
-  function routerConfig($stateProvider, $urlRouterProvider) {
+  function routerConfig($stateProvider, $urlRouterProvider, uiGmapGoogleMapApiProvider) {
+
+
+    uiGmapGoogleMapApiProvider.configure({
+      key: 'AIzaSyCTeolNv4D76MVwDaDFwa_4MeQEgw3dCrc',
+      libraries: 'weather,geometry,visualization'
+    });
+
+
     $stateProvider
       .state('home', {
         url: '/',
