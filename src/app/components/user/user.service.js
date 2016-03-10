@@ -22,8 +22,8 @@
 
 
     function _getAll(cb) {
-      $http.get('/api/user/list').then(function (list) {
-        cb(null, list);
+      $http.get('/api/user/all').then(function (list) {
+        cb(null, list.data);
       }, function (error) {
         cb(error);
       });
