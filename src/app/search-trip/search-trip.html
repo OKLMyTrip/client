@@ -42,24 +42,46 @@
     </section>
     <section>
       <div class="" layout="column" layout-align="center">
-        <md-card ng-repeat="trip in vm.trips | orderBy:'rank'">
-          <md-card-content>
-            <div flex="10">
+        <md-card flex="100" class="search-trip-header">
+          <md-card-content layout="row" layout-align="center center">
+            <div flex="15" class="search-trip-list-item">
+              Date :
+            </div>
+            <div flex="15" class="search-trip-list-item">
+              Ville de départ :
+            </div>
+            <div flex="15" class="search-trip-list-item">
+              Ville d'arrivée :
+            </div>
+            <div flex="15" class="search-trip-list-item">
+              Tarif :
+            </div>
+            <div flex="15" class="search-trip-list-item">
+              Place disponibles :
+            </div>
+            <div flex="15" class="search-trip-list-item">
+              Utilisateur :
+            </div>
+          </md-card-content>
+        </md-card>
+        <md-card ng-repeat="trip in vm.trips | orderBy:'rank'" flex="100">
+          <md-card-content layout="row" layout-align="center center">
+            <div flex="15" class="search-trip-list-item">
               {{trip.date}} {{trip.hoursDeparture}}
             </div>
-            <div flex="10">
+            <div flex="15" class="search-trip-list-item">
               {{trip.origin}}
             </div>
-            <div flex="10">
+            <div flex="15" class="search-trip-list-item">
               {{trip.destination}}
             </div>
-            <div flex="10">
+            <div flex="15" class="search-trip-list-item">
               {{trip.price}}
             </div>
-            <div flex="10">
+            <div flex="15" class="search-trip-list-item">
               {{trip.placesLeft}}
             </div>
-            <div flex="10">
+            <div flex="15" class="search-trip-list-item">
               {{trip.user.lastName}} {{trip.user.firstName}}
             </div>
           </md-card-content>
